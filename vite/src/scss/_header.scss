@@ -1,0 +1,59 @@
+.header {
+	padding-top: 2rem;
+	position: relative;
+
+	&__title {
+		text-align: center;
+		font-size: 4rem;
+	}
+
+	.checkbox {
+		opacity: 0;
+		position: absolute;
+	}
+
+	&__theme--button {
+		display: flex;
+		justify-content: flex-end;
+
+		.label {
+			width: 4rem;
+			height: 2rem;
+			margin-top: 2rem;
+			margin-right: 1rem;
+			background-color: $primary-background-buttons;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-radius: 5rem;
+			cursor: pointer;
+			transform: scale(1.5);
+		}
+
+		.ball {
+			width: 1.8rem;
+			height: 1.8rem;
+			background-color: white;
+			position: absolute;
+			left: 0.1rem;
+			border-radius: 50%;
+			transition: transform 0.2s linear;
+		}
+		.checkbox:checked + .label .ball {
+			transform: translateX(2rem);
+		}
+
+		.icon {
+			font-size: 1.4rem;
+		}
+		.icon-moon {
+			margin-right: 0.2rem;
+			color: rgb(0, 0, 0);
+		}
+
+		.icon-sun {
+			margin-left: 0.2rem;
+			color: yellow;
+		}
+	}
+}

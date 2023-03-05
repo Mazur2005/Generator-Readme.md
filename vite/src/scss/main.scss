@@ -1,0 +1,75 @@
+@import "../assets/reset.scss";
+@import "../assets/variables.scss";
+
+html {
+	font-size: $initial-font-size;
+}
+
+body {
+	font-family: $main-font;
+	color: $primary-color;
+	transition: background 0.2s linear;
+}
+#dark {
+	background-color: $dark-background;
+}
+#light {
+	background-color: $light-background;
+}
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+@import "./header";
+
+.menu {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&__hamburger--menu {
+		font-size: 3rem;
+		color: $primary-background-buttons;
+	}
+}
+
+.control--bars {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__editor {
+		font-size: 2rem;
+		font-style: italic;
+		font-weight: 300;
+	}
+}
+
+.box--textarea {
+	margin-top: 0.2rem;
+	&__editor,
+	&__translate {
+		width: 100%;
+		height: 100%;
+		resize: none;
+		border: 1px solid gray;
+		overflow: auto;
+		outline: none;
+		height: 50rem;
+		margin-bottom: 2rem;
+	}
+	&__editor:focus,
+	&__translate:focus {
+		border: 1px solid black;
+	}
+	&__text {
+		margin-bottom: 2rem;
+		text-align: center;
+		font-size: 2rem;
+		font-style: italic;
+		font-weight: 300;
+		margin-bottom: 1rem;
+		margin-top: 2rem;
+	}
+}
