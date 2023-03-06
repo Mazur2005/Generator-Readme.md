@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import Editor from "@monaco-editor/react";
+
 
 const App = () => {
 	const [input, setInput] = useState<string>(() => "");

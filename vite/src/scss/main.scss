@@ -20,6 +20,10 @@ body {
 	width: 90%;
 	margin: 0 auto;
 }
+
+button {
+	background-color: inherit;
+}
 @import "./header";
 
 .menu {
@@ -73,3 +77,104 @@ body {
 		margin-top: 2rem;
 	}
 }
+
+.dragDrop-list {
+	position: absolute;
+	z-index: 2;
+	left: 0.5rem;
+	top: 16rem;
+	width: 80%;
+	&__buttons {
+		width: 80%;
+		margin-bottom: 0.5rem;
+		display: flex;
+		justify-content: space-evenly;
+		&--btn {
+			height: 4rem;
+		}
+	}
+	&__tree {
+		width: 121%;
+	}
+}
+//headers
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="1"] span {
+	font-size: 3.2rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="2"] span {
+	font-size: 2.4rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="3"] span {
+	font-size: 1.872rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="4"] span {
+	font-size: 1.6rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="5"] span {
+	font-size: 1.328rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="6"] span {
+	font-size: 1.072rem;
+}
+////
+
+/// space between elements in li
+[aria-posinset] + .p-treenode-children li span {
+	width: 100%;
+	padding: 0.3rem;
+}
+
+
+
+/// secund element --- lists
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset] span {
+	width: 100%;
+	display: block;
+	height: 10rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="1"] span {
+	background-image: url(../img/lists/dotted-list.png);
+}
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="2"] span {
+	background-image: url(../img/lists/dotted-list-in-dotted-list.png);
+	height: 13rem;
+}
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="3"] span {
+	background-image: url(../img/lists/ordered-list.png);
+}
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="4"] span {
+	height: 13rem;
+	background-image: url(../img/lists/ordered-list-in-ordered-list.png);
+}
+
+[aria-posinset="2"] + .p-treenode-children li {
+	margin-bottom: 0.3rem;
+	border: 1px solid rgb(0, 0, 0);
+	// margin-bottom: 10px;
+}
+//////////////////
+
+//// links
+/// 
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset] span {
+	width: 100%;
+	display: block;
+	height: 7rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="1"] span {
+	background-image: url(../img/links/classical-link.png);
+}
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="2"] span {
+	background-image: url(../img/links/italic-link.png);
+}
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="3"] span {
+	background-image: url(../img/links/background-link.png);
+}
+ 

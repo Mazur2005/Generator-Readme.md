@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+
 interface Props {
 	toggleTheme: () => void;
 }
@@ -24,6 +26,7 @@ const Header = ({ toggleTheme }: Props) => {
 					<div className='ball'></div>
 				</label>
 			</div>
+			
 		</header>
 	);
 };
