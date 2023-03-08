@@ -1,0 +1,12 @@
+.box__panel {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__text {
+		font-size: 2rem;
+		font-style: italic;
+		font-weight: 300;
+	}
+}

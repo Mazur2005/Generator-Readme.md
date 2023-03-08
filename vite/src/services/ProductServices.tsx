@@ -1,5 +1,3 @@
-import { url } from "inspector";
-
 interface Type {
 	getTreeNodesData: () => void;
 	getTreeNodes: () => Promise<void>;
@@ -13,27 +11,27 @@ export const ProductService: Type = {
 				icon: "pi pi-globe",
 				children: [
 					{
-						key: "0-0",
+						key: "1-1",
 						label: `HEADER`,
 					},
 					{
-						key: "0-1",
+						key: "1-2",
 						label: `HEADER`,
 					},
 					{
-						key: "0-2",
+						key: "1-3",
 						label: `HEADER`,
 					},
 					{
-						key: "0-3",
+						key: "1-4",
 						label: `HEADER`,
 					},
 					{
-						key: "0-4",
+						key: "1-5",
 						label: `HEADER`,
 					},
 					{
-						key: "0-5",
+						key: "1-6",
 						label: `HEADER`,
 					},
 				],
@@ -44,19 +42,19 @@ export const ProductService: Type = {
 				icon: "pi pi-list",
 				children: [
 					{
-						key: "1-0",
+						key: "2-1",
 						label: "Dotted lst",
 					},
 					{
-						key: "1-1",
+						key: "2-2",
 						label: "Dotted in dotted list",
 					},
 					{
-						key: "1-2",
+						key: "2-3",
 						label: "Ordered list",
 					},
 					{
-						key: "1-3",
+						key: "2-4",
 						label: "Ordered in ordered list",
 					},
 				],
@@ -67,15 +65,15 @@ export const ProductService: Type = {
 				icon: "pi pi-star-fill",
 				children: [
 					{
-						key: "2-0",
+						key: "3-1",
 						label: "Classical bold",
 					},
 					{
-						key: "2-1",
+						key: "3-2",
 						label: "Italic",
 					},
 					{
-						key: "2-2",
+						key: "3-3",
 						label: "Bold and Italic",
 					},
 				],
@@ -86,12 +84,12 @@ export const ProductService: Type = {
 				icon: "pi pi-image",
 				children: [
 					{
-						key: "3-0",
-						label: "Images with out description",
+						key: "4-1",
+						label: "Images",
 					},
 					{
-						key: "3-0",
-						label: "Images with description",
+						key: "4-2",
+						label: "Linking Images",
 					},
 				],
 			},
@@ -101,15 +99,15 @@ export const ProductService: Type = {
 				icon: "pi pi-link",
 				children: [
 					{
-						key: "3-0",
+						key: "5-1",
 						label: "Classical anchor",
 					},
 					{
-						key: "3-0",
+						key: "5-2",
 						label: "Italic anchor",
 					},
 					{
-						key: "3-0",
+						key: "5-3",
 						label: "Anchor with background",
 					},
 				],

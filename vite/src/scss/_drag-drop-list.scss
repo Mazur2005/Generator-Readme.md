@@ -1,0 +1,124 @@
+.dragDrop-list {
+	position: absolute;
+	z-index: 2;
+	top: 11rem;
+	margin-left: 0.4rem;
+	width: 75%;
+	animation: 0.5s showDragDrop;
+	display: flex;
+	justify-content: space-evenly;
+	&__buttons {
+		width: 90%;
+		margin-bottom: 0.1rem;
+		height: 4rem;
+		display: flex;
+		justify-content: space-evenly;
+	}
+	&__tree {
+		width: 125%;
+	}
+}
+
+@keyframes showDragDrop {
+	from {
+		transform: translateX(-150%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}
+
+[aria-posinset] {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+//headers
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="1"] span {
+	font-size: 3.2rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="2"] span {
+	font-size: 2.4rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="3"] span {
+	font-size: 1.872rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="4"] span {
+	font-size: 1.6rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="5"] span {
+	font-size: 1.328rem;
+}
+[aria-posinset="1"] + .p-treenode-children li [aria-posinset="6"] span {
+	font-size: 1.072rem;
+}
+////
+
+/// space between elements in li
+[aria-posinset] + .p-treenode-children li span {
+	width: 100%;
+	padding: 0.3rem;
+}
+
+/// secund element --- lists
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset] span {
+	width: 100%;
+	display: block;
+	height: 10rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="1"] span {
+	background-image: url(../assets/img/lists/dotted-list.png);
+}
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="2"] span {
+	background-image: url(../assets/img/lists/dotted-list-in-dotted-list.png);
+	height: 13rem;
+}
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="3"] span {
+	background-image: url(../assets/img/lists/ordered-list.png);
+}
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="4"] span {
+	height: 13rem;
+	background-image: url(../assets/img/lists/ordered-list-in-ordered-list.png);
+}
+
+[aria-posinset="2"] + .p-treenode-children li {
+	margin-bottom: 0.3rem;
+}
+//////////////////
+
+//// links
+///
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset] span {
+	width: 100%;
+	display: block;
+	height: 7rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="1"] span {
+	background-image: url(../assets/img/links/classical-link.png);
+}
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="2"] span {
+	background-image: url(../assets/img/links/italic-link.png);
+}
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="3"] span {
+	background-image: url(../assets/img/links/background-link.png);
+}
+//////////////////////////////////
+///// bold and Italic
+[aria-posinset="3"] + .p-treenode-children li [aria-posinset="1"] span {
+	font-weight: bold;
+}
+[aria-posinset="3"] + .p-treenode-children li [aria-posinset="2"] span {
+	font-style: italic;
+}
+[aria-posinset="3"] + .p-treenode-children li [aria-posinset="3"] span {
+	font-style: italic;
+	font-weight: bold;
+}
