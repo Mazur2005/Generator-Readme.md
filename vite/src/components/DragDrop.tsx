@@ -10,11 +10,10 @@ import { optionToSelect } from "../services/optionsToSelect";
 import { isDragDrop } from "./redux/isDragDrop";
 
 interface TypeNode {
-	children: [];
-	data: string;
-	icon: string;
-	key: number;
-	label: string;
+	children?: { key: string; label: string }[];
+	icon?: string;
+	key: number | string;
+	label?: string;
 }
 
 interface TypeExpandedKeys {
@@ -26,24 +25,21 @@ interface StateDragDown {
 }
 
 interface PickOptionType {
-	node: any; /// we work only with node
+	node: { [key: string | number]: string }; /// we work only with node
 	originalEvent: any; /// in this object is every style and we don't use this
 }
 
 function DragDrop() {
-	const [nodes, setNodes] = useState([]);
-	const [expandedKeys, setExpandedKeys] = useState<any>();
-	const [clickedOption, setClickedOption] = useState<any>([]);
+	const [nodes, setNodes] = useState<TypeNode[]>();
+	const [expandedKeys, setExpandedKeys] = useState<TypeExpandedKeys>({});
+	const [clickedOption, setClickedOption] = useState<Array<string>>([]);
 	const theme = useContext(ThemeContext);
 
 	const expandAll = () => {
 		let _expandedKeys = {};
-
-		for (let node of nodes) {
-			console.log(_expandedKeys);
+		nodes?.forEach(node => {
 			expandNode(node, _expandedKeys);
-		}
-
+		});
 		setExpandedKeys(_expandedKeys);
 	};
 
@@ -54,13 +50,14 @@ function DragDrop() {
 	const expandNode = (node: TypeNode, _expandedKeys: TypeExpandedKeys) => {
 		if (node.children && node.children.length) {
 			_expandedKeys[node.key] = true;
-			for (let child of node.children) {
-				expandNode(child, _expandedKeys);
-			}
+
+			node.children.forEach(el => expandNode(el, _expandedKeys));
 		}
 	};
 	useEffect(() => {
-		ProductService.getTreeNodes().then((data: any) => setNodes(data));
+		ProductService.getTreeNodes().then((data: TypeNode[]) => {
+			return setNodes(data);
+		});
 	}, []);
 
 	///FIXME: show dragDown
@@ -73,7 +70,7 @@ function DragDrop() {
 
 	const dispatch = useDispatch();
 
-	const click = (_expandedKeys: any) => {
+	const openSpecificOption = (_expandedKeys: any) => {
 		setExpandedKeys((prevExpandedKeys: any) => {
 			return { ...prevExpandedKeys, ..._expandedKeys };
 		});
@@ -83,8 +80,8 @@ function DragDrop() {
 		clickedOption.find((el: any) => {
 			if (clickedOption.indexOf(el) !== clickedOption.lastIndexOf(el)) {
 				delete expandedKeys[el];
-				setClickedOption((prevClickedOption: any) => {
-					return prevClickedOption.filter((number: any) => number !== el);
+				setClickedOption(prevClickedOption => {
+					return prevClickedOption.filter(number => number !== el);
 				});
 			}
 		});
@@ -98,8 +95,8 @@ function DragDrop() {
 			return;
 		}
 
-		click({ [e.node.key]: true });
-		setClickedOption((prevClickedOption: any) => {
+		openSpecificOption({ [e.node.key]: true });
+		setClickedOption(prevClickedOption => {
 			return [...prevClickedOption, e.node.key];
 		});
 	};

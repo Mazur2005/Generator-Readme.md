@@ -1,6 +1,6 @@
 interface Type {
 	getTreeNodesData: () => void;
-	getTreeNodes: () => Promise<void>;
+	getTreeNodes: () => Promise<any>;
 }
 export const ProductService: Type = {
 	getTreeNodesData() {
