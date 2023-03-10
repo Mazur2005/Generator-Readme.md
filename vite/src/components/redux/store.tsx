@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import reducerDragDrop from "./isDragDrop";
-import changeEditor from "./editorOrder";
-import selectedOption from "./pickOption";
+import reducerDragDrop from "../../services/actions/isDragDrop";
+import changeEditor from "../../services/actions/editorOrder";
+import selectedOption from "../../services/actions/pickOption";
+import createSketch from "../../services/actions/createSketch";
 
 export const store = configureStore({
 	reducer: {
 		isDragDrop: reducerDragDrop,
 		editorOrder: changeEditor,
 		pickOption: selectedOption,
+		createSketch: createSketch,
 	},
 });
 

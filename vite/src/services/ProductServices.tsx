@@ -2,7 +2,7 @@ interface Type {
 	getTreeNodesData: () => void;
 	getTreeNodes: () => Promise<any>;
 }
-export const ProductService: Type = {
+export const productService: Type = {
 	getTreeNodesData() {
 		return [
 			{

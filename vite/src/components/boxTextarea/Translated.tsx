@@ -1,5 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
+import remarkGfm from "remark-gfm";
+// import "github-markdown-css";
+import "@wcj/markdown-style";
 
 interface Props {
 	code: string;
@@ -8,11 +11,14 @@ interface Props {
 
 const Translated = ({ code, getTheme }: Props) => {
 	return (
-		<ReactMarkdown
-			className={`box--textarea__translate ${getTheme}Theme`}
-			children={code}
-			components={{ code: Component }}
-		/>
+		<markdown-style theme={`${getTheme}`}>
+			<ReactMarkdown
+				remarkPlugins={[remarkGfm]}
+				// className={`box--textarea__translate ${getTheme}Theme `}
+				children={code}
+				components={{ code: Component }}
+			/>
+		</markdown-style>
 	);
 };
 const Component = ({ className, children }: any) => {

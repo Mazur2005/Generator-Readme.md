@@ -1,15 +1,17 @@
+/// react prime
 import { Button } from "primereact/button";
+
+/// redux
 import { styleForBtns } from "@/utils/styleForBtns";
 import { useSelector, useDispatch } from "react-redux";
-import { changeEditor } from "./redux/editorOrder";
+import { changeEditor } from "../services/actions/editorOrder";
 
-interface OrderEditor {
-	[key: string]: { [key: string]: boolean };
-}
+/// style
+import { typeOrderEditor } from "@/interface/types/globalTypes";
 
 const BoxPanel = () => {
 	const changeOrderEditor = useSelector(
-		(state: OrderEditor) => state.editorOrder.value
+		(state: typeOrderEditor) => state.editorOrder.value
 	);
 	const dispatch = useDispatch();
 
