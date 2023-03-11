@@ -35,3 +35,25 @@
 	background-color: #ffffff;
 	color: rgb(0, 0, 0);
 }
+
+.copyIcon {
+	position: absolute;
+	z-index: 2;
+	top: 3%;
+	right: 2%;
+	cursor: pointer;
+	border: none;
+	.fa-copy {
+		color: $primary-color;
+	}
+	.fa-paste {
+		color: green;
+	}
+}
+
+.copyIconText::before {
+	content: "Copied !";
+	position: absolute;
+	right: 120%;
+	color: green;
+}

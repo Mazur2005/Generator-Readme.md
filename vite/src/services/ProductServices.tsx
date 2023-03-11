@@ -43,7 +43,7 @@ export const productService: Type = {
 				children: [
 					{
 						key: "2-1",
-						label: "Dotted lst",
+						label: "Dotted list",
 					},
 					{
 						key: "2-2",
@@ -56,6 +56,10 @@ export const productService: Type = {
 					{
 						key: "2-4",
 						label: "Ordered in ordered list",
+					},
+					{
+						key: "2-5",
+						label: "Check list",
 					},
 				],
 			},
@@ -109,6 +113,58 @@ export const productService: Type = {
 					{
 						key: "5-3",
 						label: "Anchor with background",
+					},
+				],
+			},
+			{
+				key: 6,
+				label: "Strikethrough",
+				children: [
+					{
+						key: "6-1",
+						label: "This text is strikethrough",
+					},
+				],
+			},
+			{
+				key: 7,
+				label: "Blockquotes",
+				children: [
+					{
+						key: "7-1",
+						label: "Classic blockquotes",
+					},
+					{
+						key: "7-2",
+						label: "Blockquote in a blockquote",
+					},
+				],
+			},
+			{
+				key: 8,
+				label: "Table",
+				children: [
+					{
+						key: "8-1",
+						label: "zdj tabeli 3 kolumnowej",
+					},
+					{
+						key: "8-2",
+						label: "zdj tabeli 2 kolumnowej",
+					},
+				],
+			},
+			{
+				key: 9,
+				label: "code",
+				children: [
+					{
+						key: "9-1",
+						label: "zdj git clone",
+					},
+					{
+						key: "9-2",
+						label: "zdj js clone",
 					},
 				],
 			},

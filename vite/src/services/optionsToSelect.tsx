@@ -69,6 +69,19 @@ const optionToSelect = () => {
 	2. Indented item
 4. Fourth item`,
 		},
+		{
+			key: "2-5",
+			code: `
+- [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
+- [ ] Jupiter
+- [ ] Saturn
+- [ ] Uranus
+- [ ] Neptune
+- [ ] Comet Haley`,
+		},
 
 		////////////////////////////////:TODO: Bold and Italic
 		{
@@ -115,6 +128,64 @@ Italic Anchor *[Markdown Guide](https://www.markdownguide.org)*`,
 			key: "5-3",
 			code: `
 Anchor with background ${"[`code`]"}(#code)`,
+		},
+
+		////////////////////////////////:TODO: strikethrough
+		{
+			key: "6-1",
+			code: `~~This text is strikethrough~~`,
+		},
+
+		////////////////////////////////:TODO: blockquotes
+		{
+			key: "7-1",
+			code: `
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+> 
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+> id sem consectetuer libero luctus adipiscing.`,
+		},
+		{
+			key: "7-2",
+			code: `
+> This is the first level of quoting.
+>
+> > This is nested blockquote.
+>
+> Back to the first level.`,
+		},
+
+		////////////////////////////////:TODO: blockquotes
+
+		{
+			key: "8-1",
+			code: `
+| Left | Center | Right |
+|:-----|:------:|------:|
+|aaa   |bbb     |ccc    |
+|ddd   |eee     |fff    |
+`,
+		},
+		{
+			key: "8-2",
+			code: `
+A | B 
+---|---
+123|456
+`,
+		},
+
+		////////////////////////////////:TODO: code
+
+		{
+			key: "9-1",
+			code: `${"```git run dev ```"}`,
+		},
+		{
+			key: "9-2",
+			code: `${"``` react\nconst Translated = ({ code, getTheme }: Props) => {\nreturn (\n<markdown-style theme={`${getTheme}`}>\n<ReactMarkdown\nremarkPlugins={[remarkGfm]}\nclassName={`box--textarea__translate`}\nchildren={code}\ncomponents={{ code: Component }}\n/>\n</markdown-style>\n);\n}\n```"}`,
 		},
 	];
 };
