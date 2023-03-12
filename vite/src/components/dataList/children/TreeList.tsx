@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React, { Children, useContext } from "react";
 /// react prime
 import { Tree } from "primereact/tree";
 
 /// context
-import { ThemeContext } from "../App";
+import { ThemeContext } from "../../App";
 
 /// ts
 import { typePickOption } from "@/interface/types/globalTypes";
@@ -26,12 +26,13 @@ const TreeList = ({
 	const theme = useContext(ThemeContext);
 	return (
 		<Tree
+			
 			style={{ background: theme === "dark" ? "#cdc8c8" : "white" }}
 			onNodeClick={(e: typePickOption) => pickOption(e)}
 			value={nodes}
 			expandedKeys={expandedKeys}
 			onToggle={e => getExpandedKeys(e.value)}
-			className='w-full md:w-30rem dragDrop-list__tree'
+			className='w-full md:w-30rem data-list__tree'
 		/>
 	);
 };

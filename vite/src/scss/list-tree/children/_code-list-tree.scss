@@ -1,0 +1,10 @@
+[aria-posinset="9"] + .p-treenode-children li [aria-posinset] span::after {
+	background-color: rgb(163, 160, 160);
+	padding: 1rem;
+}
+[aria-posinset="9"] + .p-treenode-children li [aria-posinset="1"] span::after {
+	content: "    $ git run dev";
+}
+[aria-posinset="9"] + .p-treenode-children li [aria-posinset="2"] span::after {
+	content: "    piece code of react";
+}

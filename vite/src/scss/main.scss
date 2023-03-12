@@ -25,8 +25,7 @@ body {
 @import "./_menu.scss";
 @import "./box-panel";
 @import "./box-textarea";
-@import "./drag-drop-list";
-
+@import "./list-tree/data-tree";
 .markdown-body {
 	color-scheme: black;
 	box-sizing: border-box;
@@ -41,4 +40,3 @@ body {
 		padding: 15px;
 	}
 }
-

@@ -1,0 +1,75 @@
+.data-list {
+	position: absolute;
+	z-index: 2;
+	top: 11rem;
+	margin-left: 0.4rem;
+	width: 75%;
+	animation: 0.5s showDragDrop;
+	display: flex;
+	justify-content: space-evenly;
+	&__buttons {
+		width: 90%;
+		margin-bottom: 0.1rem;
+		height: 4rem;
+		display: flex;
+		justify-content: space-evenly;
+	}
+	&__tree {
+		width: 125%;
+	}
+}
+
+@keyframes showDragDrop {
+	from {
+		transform: translateX(-150%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}
+
+/// global list style
+[aria-posinset] {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	font-size: 2rem;
+	margin-bottom: 0.2rem;
+}
+///
+
+/// for every li
+[aria-posinset] + .p-treenode-children li [aria-posinset] span {
+	position: relative;
+	font-size: 2.7rem;
+	width: 100%;
+}
+
+/// space between elements in li
+[aria-posinset] + .p-treenode-children li span {
+	padding: 0.3rem;
+}
+/// border bottom
+[aria-posinset] + .p-treenode-children li [aria-posinset] {
+	border-bottom: 1px solid black;
+}
+
+/// for all after and before
+[aria-posinset] + .p-treenode-children li [aria-posinset] span::after,
+[aria-posinset] + .p-treenode-children li [aria-posinset] span::before {
+	margin-top: 10px;
+	white-space: pre;
+	font-size: 1.6rem;
+	display: block;
+	line-height: 2rem;
+	text-align: left;
+}
+
+@import "./children/headers-list-tree";
+@import "./children/lists-list-tree";
+@import "./children/bold-and_italic-list-tree";
+@import "./children/img-list-tree";
+@import "./children/links-list-tree";
+@import "./children/strikethrough-list-tree";
+@import "./children/blockquotes-list-tree";
+@import "./children/table-list-tree";
+@import "./children/code-list-tree";

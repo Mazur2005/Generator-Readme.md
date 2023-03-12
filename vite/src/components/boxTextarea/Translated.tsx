@@ -9,8 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faPaste } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
-
-
 interface Props {
 	code: string;
 	getTheme: string;

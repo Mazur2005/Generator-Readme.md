@@ -16,11 +16,11 @@ import { TypeNode } from "@/interface/types/globalTypes";
 import { TypeExpandedKeys } from "@/interface/types/globalTypes";
 
 /// children
-import { ExpandAll } from "./ExpandAll";
-import { CloseAll } from "./CloseAll";
-import { TreeList } from "./TreeList";
+import { ExpandAll } from "./children/ExpandAll";
+import { CloseAll } from "./children/CloseAll";
+import { TreeList } from "./children/TreeList";
 
-function DragDrop() {
+function DataList() {
 	const [nodes, setNodes] = useState<TypeNode[]>();
 	const [expandedKeys, setExpandedKeys] = useState<TypeExpandedKeys>({});
 	const [clickedOption, setClickedOption] = useState<Array<string>>([]);
@@ -94,12 +94,11 @@ function DragDrop() {
 	const isDisplay = () => {
 		return isDisplayDragDown ? "block" : "none";
 	};
-
 	return (
 		<div
-			className='card flex flex-column align-items-center dragDrop-list'
+			className='card flex flex-column align-items-center data-list'
 			style={{ display: isDisplay() }}>
-			<div className='flex flex-wrap gap-2 mb-4 dragDrop-list__buttons'>
+			<div className='flex flex-wrap gap-2 mb-4 data-list__buttons'>
 				<ExpandAll expandAll={expandAll} />
 				<CloseAll collapseAll={collapseAll} />
 			</div>
@@ -112,4 +111,4 @@ function DragDrop() {
 		</div>
 	);
 }
-export { DragDrop };
+export { DataList };

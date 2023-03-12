@@ -109,7 +109,7 @@ It is ***bold && italic***`,
 		{
 			key: "4-2",
 			code: `
-[![An old rock in the desert](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2rcAhD1UPGhl1DPKcaXrCH7mbNt9S-xix9ybm7DFApg&s)](https://www.google.pl)`,
+[![There is you description something like alt attribute](https://sweezy-cursors.com/wp-content/uploads/cursor/pusheen-the-cat-animated/pusheen-the-cat-animated-custom-cursor.gif)](https://www.google.pl)`,
 		},
 
 		////////////////////////////////:TODO: links
@@ -140,12 +140,10 @@ Anchor with background ${"[`code`]"}(#code)`,
 		{
 			key: "7-1",
 			code: `
-> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+> Lorem ipsum dolor sit amet,
+> Vestibulum enim wisi, viverra.
 > 
-> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-> id sem consectetuer libero luctus adipiscing.`,
+> Donec sit amet nisl.`,
 		},
 		{
 			key: "7-2",
@@ -171,6 +169,7 @@ Anchor with background ${"[`code`]"}(#code)`,
 		{
 			key: "8-2",
 			code: `
+
 A | B 
 ---|---
 123|456
@@ -181,11 +180,11 @@ A | B
 
 		{
 			key: "9-1",
-			code: `${"```git run dev ```"}`,
+			code: `${"\n\n```git run dev ```"}`,
 		},
 		{
 			key: "9-2",
-			code: `${"``` react\nconst Translated = ({ code, getTheme }: Props) => {\nreturn (\n<markdown-style theme={`${getTheme}`}>\n<ReactMarkdown\nremarkPlugins={[remarkGfm]}\nclassName={`box--textarea__translate`}\nchildren={code}\ncomponents={{ code: Component }}\n/>\n</markdown-style>\n);\n}\n```"}`,
+			code: `${"\n``` react\nconst Translated = ({ code, getTheme }: Props) => {\nreturn (\n<markdown-style theme={`${getTheme}`}>\n<ReactMarkdown\nremarkPlugins={[remarkGfm]}\nclassName={`box--textarea__translate`}\nchildren={code}\ncomponents={{ code: Component }}\n/>\n</markdown-style>\n);\n}\n```"}`,
 		},
 	];
 };

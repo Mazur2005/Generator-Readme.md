@@ -7,7 +7,7 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 
 /// children
-import { DragDrop } from "./dragDrop/DragDrop";
+import { DataList } from "./dataList/DataList";
 import { BoxPanel } from "./BoxPanel";
 import { BoxTextarea } from "./boxTextarea/BoxTextarea";
 import { Header } from "./Header";
@@ -45,8 +45,9 @@ const App = () => {
 				<BoxPanel />
 				<BoxTextarea />
 			</div>
-			<DragDrop />
+			<DataList />
 		</ThemeContext.Provider>
+		
 	);
 };
 export { ThemeContext };

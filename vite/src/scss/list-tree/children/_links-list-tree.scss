@@ -1,0 +1,37 @@
+/// universal style before for anchor
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset] span::before {
+	content: "consete";
+	position: absolute;
+	right: 14%;
+	bottom: 5%;
+}
+
+/// classic anchor
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="1"] span::after {
+	content: "    Lorem ipsum,";
+}
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="1"] span::before {
+	color: blue;
+}
+
+/// italic anchor
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="2"] span::after {
+	content: "    Lorem ipsum,";
+}
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="2"] span::before {
+	color: blue;
+	font-style: italic;
+	bottom: 4%;
+}
+
+/// italic anchor
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="3"] span::after {
+	content: "    Lorem ipsum,";
+}
+[aria-posinset="5"] + .p-treenode-children li [aria-posinset="3"] span::before {
+	color: rgb(0, 0, 255);
+	background-color: rgb(175, 170, 170);
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+	bottom: 4%;
+}

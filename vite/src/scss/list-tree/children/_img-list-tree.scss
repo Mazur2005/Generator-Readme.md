@@ -1,0 +1,21 @@
+[aria-posinset="4"] + .p-treenode-children li [aria-posinset] span::after {
+	content: "";
+	display: block;
+	width: 90%;
+	height: 15rem;
+	background-position: left;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-left: 2rem;
+	border: 5rem;
+}
+
+/// classic img
+[aria-posinset="4"] + .p-treenode-children li [aria-posinset="1"] span::after {
+	background-image: url(https://i.ytimg.com/vi/CUapPhdM7nc/maxresdefault.jpg);
+}
+
+///  img like anchor
+[aria-posinset="4"] + .p-treenode-children li [aria-posinset="2"] span::after {
+	background-image: url(https://sweezy-cursors.com/wp-content/uploads/cursor/pusheen-the-cat-animated/pusheen-the-cat-animated-custom-cursor.gif);
+}

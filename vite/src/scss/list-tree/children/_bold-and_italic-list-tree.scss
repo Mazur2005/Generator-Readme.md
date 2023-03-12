@@ -1,0 +1,10 @@
+[aria-posinset="3"] + .p-treenode-children li [aria-posinset="1"] span {
+	font-weight: bold;
+}
+[aria-posinset="3"] + .p-treenode-children li [aria-posinset="2"] span {
+	font-style: italic;
+}
+[aria-posinset="3"] + .p-treenode-children li [aria-posinset="3"] span {
+	font-style: italic;
+	font-weight: bold;
+}

@@ -43,7 +43,7 @@ export const productService: Type = {
 				children: [
 					{
 						key: "2-1",
-						label: "Dotted list",
+						label: "Dotted list"
 					},
 					{
 						key: "2-2",
@@ -122,7 +122,7 @@ export const productService: Type = {
 				children: [
 					{
 						key: "6-1",
-						label: "This text is strikethrough",
+						label: "Strikethrough",
 					},
 				],
 			},
@@ -146,11 +146,11 @@ export const productService: Type = {
 				children: [
 					{
 						key: "8-1",
-						label: "zdj tabeli 3 kolumnowej",
+						label: "Two rows table",
 					},
 					{
 						key: "8-2",
-						label: "zdj tabeli 2 kolumnowej",
+						label: "Three rows table",
 					},
 				],
 			},
@@ -160,11 +160,11 @@ export const productService: Type = {
 				children: [
 					{
 						key: "9-1",
-						label: "zdj git clone",
+						label: "Git code",
 					},
 					{
 						key: "9-2",
-						label: "zdj js clone",
+						label: "React code",
 					},
 				],
 			},

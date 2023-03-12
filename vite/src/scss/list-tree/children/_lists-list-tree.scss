@@ -1,0 +1,24 @@
+/// dotted list
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="1"] span::after {
+	content: "    • First item\a     •  Secund item \a     •  Third item \a     •  Fourth item";
+}
+
+/// dotted in dotted list
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="2"] span::after {
+	content: "    •  First item\a     •  Secund item\a			• Indented item\a			• Indented item\a     •  Third item\a     •  Fourth item";
+}
+
+/// ordered list
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="3"] span::after {
+	content: "    1. First item\a     2. Secund item\a     3. Third item\a     4. Fourth item";
+}
+
+/// ordered in ordered list
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="4"] span::after {
+	content: "    1. First item\a     2. Secund item\a			1.Indented item\a			2.Indented item\a      3. Third item\a      4. Fourth item";
+}
+
+/// check list
+[aria-posinset="2"] + .p-treenode-children li [aria-posinset="5"] span::after {
+	content: "    - [ ] Mercury\a     - [x] Venus\a     - [x] Earth (Orbit/Moon)\a     - [x] Mars\a      - [ ] Jupiter\a      - [ ] Saturn";
+}

@@ -1,0 +1,17 @@
+
+[aria-posinset="8"] + .p-treenode-children li [aria-posinset] span::after {
+	content: "";
+	display: block;
+	height: 10rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+[aria-posinset="8"] + .p-treenode-children li [aria-posinset="2"] span::after {
+	background-image: url("src/assets/img/2rowsTable.png");
+
+}
+[aria-posinset="8"] + .p-treenode-children li [aria-posinset="1"] span::after {
+	background-image: url("src/assets/img/3rowsTable.png");
+}
