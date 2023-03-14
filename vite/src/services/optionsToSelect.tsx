@@ -180,7 +180,7 @@ A | B
 
 		{
 			key: "9-1",
-			code: `${"\n\n```git run dev ```"}`,
+			code: `${"\n\n```bash\ngit run dev \n```"}`,
 		},
 		{
 			key: "9-2",

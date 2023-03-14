@@ -1,9 +1,11 @@
 .menu {
-	margin-top: 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-bottom: 1rem;
+	margin-top: 2rem;
 	&__hamburger--menu {
+		z-index: 3;
 		font-size: 3rem;
 		background-color: inherit;
 		color: $primary-background-buttons;

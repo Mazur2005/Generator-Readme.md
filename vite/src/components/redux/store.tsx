@@ -3,6 +3,7 @@ import reducerDragDrop from "../../services/actions/isDragDrop";
 import changeEditor from "../../services/actions/editorOrder";
 import selectedOption from "../../services/actions/pickOption";
 import createSketch from "../../services/actions/createSketch";
+import isDesktop from "@/services/actions/isDesktop";
 
 export const store = configureStore({
 	reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
 		editorOrder: changeEditor,
 		pickOption: selectedOption,
 		createSketch: createSketch,
+		isDesktop,
 	},
 });
 

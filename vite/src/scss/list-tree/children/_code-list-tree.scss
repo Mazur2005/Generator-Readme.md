@@ -1,5 +1,6 @@
 [aria-posinset="9"] + .p-treenode-children li [aria-posinset] span::after {
 	background-color: rgb(163, 160, 160);
+	border-radius: 1rem;
 	padding: 1rem;
 }
 [aria-posinset="9"] + .p-treenode-children li [aria-posinset="1"] span::after {

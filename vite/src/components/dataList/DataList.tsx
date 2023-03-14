@@ -5,15 +5,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectedOption } from "../../services/actions/pickOption";
 import { isDragDrop } from "../../services/actions/isDragDrop";
 import { optionToSelect } from "../../services/optionsToSelect";
+import { isDesktop } from "@/services/actions/isDesktop";
 
 /// ProductService
 import { productService } from "../../services/productServices";
 
-/// ts
+/// types
 import { typeStateDragDown } from "@/interface/types/globalTypes";
 import { typePickOption } from "@/interface/types/globalTypes";
 import { TypeNode } from "@/interface/types/globalTypes";
 import { TypeExpandedKeys } from "@/interface/types/globalTypes";
+import { typeIsDesktop } from "@/interface/types/globalTypes";
 
 /// children
 import { ExpandAll } from "./children/ExpandAll";
@@ -91,23 +93,30 @@ function DataList() {
 		return setExpandedKeys(value);
 	};
 
+	const isDesktop = useSelector(
+		(state: typeIsDesktop) => state.isDesktop.value
+	);
+
 	const isDisplay = () => {
+		if (isDesktop) return "block";
 		return isDisplayDragDown ? "block" : "none";
 	};
 	return (
-		<div
-			className='card flex flex-column align-items-center data-list'
-			style={{ display: isDisplay() }}>
-			<div className='flex flex-wrap gap-2 mb-4 data-list__buttons'>
-				<ExpandAll expandAll={expandAll} />
-				<CloseAll collapseAll={collapseAll} />
+		<div className="container">
+			<div
+				className='card flex flex-column align-items-center data-list'
+				style={{ display: isDisplay() }}>
+				<div className='flex flex-wrap gap-2 mb-4 data-list__buttons'>
+					<ExpandAll expandAll={expandAll} />
+					<CloseAll collapseAll={collapseAll} />
+				</div>
+				<TreeList
+					pickOption={pickOption}
+					nodes={nodes}
+					expandedKeys={expandedKeys}
+					getExpandedKeys={getExpandedKeys}
+				/>
 			</div>
-			<TreeList
-				pickOption={pickOption}
-				nodes={nodes}
-				expandedKeys={expandedKeys}
-				getExpandedKeys={getExpandedKeys}
-			/>
 		</div>
 	);
 }

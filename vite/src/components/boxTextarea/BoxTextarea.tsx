@@ -9,33 +9,37 @@ import { selectedOption } from "../../services/actions/pickOption";
 import { createSketch } from "@/services/actions/createSketch";
 
 /// children
-import { Editor } from "./Editor";
-import { Translated } from "./Translated";
+import { Editor } from "./children/Editor";
+import { Translated } from "./children/Translated";
+import { ToastDialog } from "./confirmDialog/ToastDialog";
 
-/// react prime
-import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
-import { Toast } from "primereact/toast";
-
-/// style
+/// types
 import { typeOrderEditor } from "@/interface/types/globalTypes";
 import { typeSketch } from "@/interface/types/globalTypes";
 
 /// local storage
 import useLocalStorage from "react-use-localstorage";
 
+/// check width
+import { useWindowSize } from "react-use";
+import { WIDTH_BREAK_POINT } from "@/utils/breakPoint";
+///
+
+import { DataList } from "../dataList/DataList";
+
 interface typeSelectedValue {
 	[key: string]: { [key: string]: boolean | string };
 }
 
 const BoxTextarea = () => {
-	const [code, setCode] = useState<string>("");
+	const [code, setCode] = useState("");
 	const [CodeFromLocalStorage, setCodeToLocalStorage] = useLocalStorage(
 		"code",
 		""
 	);
 	const [visible, setVisible] = useState(false);
-	const toast = useRef<any>(null); //// FIXME:
-	const scrollToButton = useRef<any>(null); ///FIXME:
+	const toast = useRef<any>(null);
+	const scrollToButton = useRef<any>(null);
 
 	const theme = useContext(ThemeContext);
 
@@ -49,6 +53,7 @@ const BoxTextarea = () => {
 	const addSketch = useSelector((state: typeSketch) => {
 		return state.createSketch.value;
 	});
+	const { width } = useWindowSize();
 
 	/// local Storage
 	useEffect(() => {
@@ -58,27 +63,9 @@ const BoxTextarea = () => {
 	useEffect(() => {
 		CodeFromLocalStorage && setCode(CodeFromLocalStorage);
 	}, []);
+	///
 
-	/// popup
-	const accept = () => {
-		toast.current.show({
-			severity: "info",
-			summary: "Confirmed",
-			detail: "You have accepted",
-			life: 1500,
-		});
-		dispatch(createSketch(""));
-		return setCode(addSketch);
-	};
-	const reject = () => {
-		toast.current.show({
-			severity: "warn",
-			summary: "Rejected",
-			detail: "You have rejected",
-			life: 1500,
-		});
-		dispatch(createSketch(""));
-	};
+	/// check is possible to add sketch
 	useEffect(() => {
 		if (addSketch !== "" && code === "") {
 			dispatch(createSketch(""));
@@ -86,6 +73,7 @@ const BoxTextarea = () => {
 		}
 		if (addSketch !== "" && code !== "") return setVisible(true);
 	}, [addSketch]);
+	///
 
 	/// selected value
 	useEffect(() => {
@@ -99,6 +87,28 @@ const BoxTextarea = () => {
 		///
 	}, [selectedValue]);
 
+	/// popup
+	const accept = () => {
+		toast.current.show({
+			severity: "info",
+			summary: "Confirmed",
+			detail: "You have accepted",
+			life: 1500,
+		});
+		dispatch(createSketch(""));
+		setCode(addSketch);
+	};
+	const reject = () => {
+		toast.current.show({
+			severity: "warn",
+			summary: "Rejected",
+			detail: "You have rejected",
+			life: 1500,
+		});
+		dispatch(createSketch(""));
+	};
+	///
+
 	const getTheme = (theme: string) => {
 		return theme === "dark" ? "dark" : "light";
 	};
@@ -107,9 +117,21 @@ const BoxTextarea = () => {
 		setCode(value);
 	};
 
+	const handleOnHide = () => {
+		dispatch(createSketch(""));
+		setVisible(false);
+	};
+
+	/// width
+	const [addDataList, setAddDataList] = useState(false);
+	useEffect(() => {
+		width >= WIDTH_BREAK_POINT && setAddDataList(true);
+	}, [width]);
+
 	const editorOnTop = () => {
 		return (
 			<div className='box--textarea container'>
+				{addDataList && <DataList />}
 				<Editor
 					code={code}
 					handleOnChange={handleOnChange}
@@ -124,6 +146,7 @@ const BoxTextarea = () => {
 	const editorOnDown = () => {
 		return (
 			<div className='box--textarea container'>
+				{addDataList && <DataList />}
 				<Translated code={code} getTheme={getTheme(theme)} />
 				<p className='box--textarea__text'>Editor</p>
 				<Editor
@@ -139,16 +162,10 @@ const BoxTextarea = () => {
 	return (
 		<>
 			{orderEditor ? editorOnDown() : editorOnTop()}
-			<Toast ref={toast} />
-			<ConfirmDialog
+			<ToastDialog
+				toast={toast}
 				visible={visible}
-				onHide={() => {
-					dispatch(createSketch(""));
-					setVisible(false);
-				}}
-				message='Are you sure you want overwrite your code ?'
-				header='Confirmation'
-				icon='pi pi-exclamation-triangle'
+				handleOnHide={handleOnHide}
 				accept={accept}
 				reject={reject}
 			/>

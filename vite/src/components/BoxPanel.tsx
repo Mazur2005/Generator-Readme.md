@@ -6,7 +6,7 @@ import { styleForBtns } from "@/utils/styleForBtns";
 import { useSelector, useDispatch } from "react-redux";
 import { changeEditor } from "../services/actions/editorOrder";
 
-/// style
+/// ts
 import { typeOrderEditor } from "@/interface/types/globalTypes";
 
 const BoxPanel = () => {

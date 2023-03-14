@@ -6,37 +6,27 @@ html {
 }
 
 body {
+	border: 1px solid red;
 	font-family: $main-font;
 	color: $primary-color;
 	transition: background 0.2s linear;
 }
-#dark {
+.dark {
 	background-color: $dark-background;
+	min-height: 100vh;
 }
-#light {
+.light {
 	background-color: $light-background;
+	min-height: 100vh;
 }
 .container {
 	width: 90%;
 	margin: 0 auto;
 }
 
-@import "./_header";
-@import "./_menu.scss";
+@import "./header";
+@import "./menu";
 @import "./box-panel";
 @import "./box-textarea";
 @import "./list-tree/data-tree";
-.markdown-body {
-	color-scheme: black;
-	box-sizing: border-box;
-	min-width: 200px;
-	max-width: 980px;
-	margin: 0 auto;
-	padding: 45px;
-}
-
-@media (max-width: 767px) {
-	.markdown-body {
-		padding: 15px;
-	}
-}
+// @import "./popup/popup";

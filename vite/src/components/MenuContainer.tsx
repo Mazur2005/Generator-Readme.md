@@ -9,21 +9,28 @@ import { Button } from "primereact/button";
 import { useSelector, useDispatch } from "react-redux";
 import { isDragDrop } from "../services/actions/isDragDrop";
 import { createSketch } from "@/services/actions/createSketch";
+import { isDesktop } from "@/services/actions/isDesktop";
 
 /// styles
 import { styleForBtns } from "../utils/styleForBtns";
 
 /// types
 import { typeStateDragDown } from "@/interface/types/globalTypes";
-import { typeSketch } from "@/interface/types/globalTypes";
+import { typeIsDesktop } from "@/interface/types/globalTypes";
 
 /// sketch string
 import { sketch } from "@/services/sketch";
+
+import { useEffect } from "react";
 
 const MenuContainer = () => {
 	const isDisplayDragDown = useSelector(
 		(state: typeStateDragDown) => state.isDragDrop.value
 	);
+	const isDesktop = useSelector(
+		(state: typeIsDesktop) => state.isDesktop.value
+	);
+
 	const dispatch = useDispatch();
 
 	const getIcon = () => {
@@ -35,6 +42,13 @@ const MenuContainer = () => {
 	};
 	const getSketch = () => dispatch(createSketch(sketch));
 
+	const displayDragDown = () => {
+		dispatch(isDragDrop(!isDisplayDragDown));
+	};
+	useEffect(() => {
+		isDesktop ? dispatch(isDragDrop(true)) : dispatch(isDragDrop(false));
+	}, [isDesktop]);
+
 	return (
 		<div className='menu container'>
 			<Button
@@ -43,11 +57,11 @@ const MenuContainer = () => {
 				style={styleForBtns}
 				onClick={getSketch}
 			/>
-			<button
-				onClick={() => dispatch(isDragDrop(!isDisplayDragDown))}
-				className='menu__hamburger--menu'>
-				{getIcon()}
-			</button>
+			{isDesktop || (
+				<button onClick={displayDragDown} className='menu__hamburger--menu'>
+					{getIcon()}
+				</button>
+			)}
 		</div>
 	);
 };

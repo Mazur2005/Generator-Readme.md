@@ -16,9 +16,12 @@ import { MenuContainer } from "./MenuContainer";
 /// redux
 import { useSelector, useDispatch } from "react-redux";
 import { isDragDrop } from "../services/actions/isDragDrop";
+import { isDesktop } from "@/services/actions/isDesktop";
 
 /// ts
 import { typeStateDragDown } from "@/interface/types/globalTypes";
+import { CheckWidth } from "./CheckWidth";
+import { typeIsDesktop } from "@/interface/types/globalTypes";
 
 const ThemeContext: React.Context<string> = createContext("");
 
@@ -27,27 +30,32 @@ const App = () => {
 	const isDisplayDragDown = useSelector(
 		(state: typeStateDragDown) => state.isDragDrop.value
 	);
+	const isDesktop = useSelector(
+		(state: typeIsDesktop) => state.isDesktop.value
+	);
 	const dispatch = useDispatch();
 
 	const toggleTheme = () => {
-
 		setTheme(prevTheme => (prevTheme === "dark" ? "light" : "dark"));
 	};
+
 	const closeDragDrop = () => {
-		isDisplayDragDown && dispatch(isDragDrop(!isDisplayDragDown));
+		if (isDesktop) return;
+		return isDisplayDragDown && dispatch(isDragDrop(!isDisplayDragDown));
 	};
 
 	return (
 		<ThemeContext.Provider value={theme}>
-			<div id={theme} onClick={closeDragDrop}>
+			
+			<div className={theme} onClick={closeDragDrop}>
 				<Header toggleTheme={toggleTheme} />
 				<MenuContainer />
 				<BoxPanel />
 				<BoxTextarea />
 			</div>
-			<DataList />
+			{isDesktop || <DataList />}
+			<CheckWidth />
 		</ThemeContext.Provider>
-		
 	);
 };
 export { ThemeContext };

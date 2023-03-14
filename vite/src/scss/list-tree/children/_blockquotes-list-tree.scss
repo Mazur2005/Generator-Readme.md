@@ -4,14 +4,15 @@
 	width: 0.4rem;
     background-color: gray;
 }
-
+[aria-posinset="7"] + .p-treenode-children li [aria-posinset] span::after {
+	margin-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
+}
 
 /// classic blockquotes
 [aria-posinset="7"] + .p-treenode-children li [aria-posinset="1"] span::after {
-	content: "    Lorem ipsum dolor sit\a\a     Donec sit amet nisl";
-	margin-left: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
+	content: "Lorem ipsum dolor sit\a\a Donec sit amet nisl";
+	margin-left: 4rem;
 }
 [aria-posinset="7"] + .p-treenode-children li [aria-posinset="1"] span::before {
 	height: 6rem;
@@ -22,17 +23,15 @@
 
 ///  blockquote in blockquote
 [aria-posinset="7"] + .p-treenode-children li [aria-posinset="2"] span::after {
-	content: "    Lorem ipsum dolor sit\a             Donec sit amet nisl\a      versions of Lorem ";
+	content: "Lorem ipsum dolor sit\a      Donec sit amet nisl\a versions of Lorem ";
 	line-height: 4rem;
     border-left: 0.4rem solid gray;
-	margin-left: 1.8rem;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
+	padding-left: 1rem;
 }
 [aria-posinset="7"] + .p-treenode-children li [aria-posinset="2"] span::before {
 	height: 4rem;
 	bottom: 5.6rem;
-	left: 6rem;
+	left: 5rem;
 }
 
 

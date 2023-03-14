@@ -2,20 +2,40 @@
 	position: absolute;
 	z-index: 2;
 	top: 11rem;
-	margin-left: 0.4rem;
-	width: 75%;
+	left: 0;
+	width: 100%;
+	// max-width: 100%;
+	// height: auto;
+	// display: flex;
+	// justify-content: space-evenly;
 	animation: 0.5s showDragDrop;
-	display: flex;
-	justify-content: space-evenly;
 	&__buttons {
-		width: 90%;
-		margin-bottom: 0.1rem;
-		height: 4rem;
 		display: flex;
-		justify-content: space-evenly;
+		margin-bottom: 0.2rem;
+		height: 4rem;
+		[aria-label="Expand All"],
+		[aria-label="Collapse All"] {
+			margin-left: 0.5rem;
+		}
 	}
-	&__tree {
-		width: 125%;
+}
+
+@media (min-width: 1100px) {
+	.data-list {
+		position: static;
+		min-width: 34rem;
+		max-width: 34rem;
+		// margin-left: 7rem;
+		max-height: 70vh;
+		min-height: 70vh;
+		overflow: auto;
+		animation: 0.5s showDragDrop;
+		margin-bottom: 1rem;
+		&__buttons {
+			margin-bottom: 0.5rem;
+			height: 4rem;
+			display: flex;
+		}
 	}
 }
 
@@ -56,13 +76,17 @@
 /// for all after and before
 [aria-posinset] + .p-treenode-children li [aria-posinset] span::after,
 [aria-posinset] + .p-treenode-children li [aria-posinset] span::before {
-	margin-top: 10px;
-	white-space: pre;
-	font-size: 1.6rem;
 	display: block;
-	line-height: 2rem;
 	text-align: left;
+	line-height: 2rem;
+	font-size: 1.6rem;
+	white-space: pre;
 }
+[aria-posinset] + .p-treenode-children li [aria-posinset] span::after {
+	margin-top: 1rem;
+	margin-left: 2rem;
+}
+///
 
 @import "./children/headers-list-tree";
 @import "./children/lists-list-tree";

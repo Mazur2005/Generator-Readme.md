@@ -1,6 +1,9 @@
 export interface typeStateDragDown {
 	[key: string]: { [key: string]: boolean };
 }
+export interface typeIsDesktop {
+	[key: string]: { [key: string]: boolean };
+}
 export interface typePickOption {
 	node: { [key: string | number]: string }; /// we work only with node
 	originalEvent: any; /// in this object is every style and we don't use this
