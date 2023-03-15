@@ -4,9 +4,8 @@ import * as path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	base: "/Generator-Readme.md/"
+	base: "/Generator-Readme.md/",
 
-	
 	resolve: {
 		alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
 	},
