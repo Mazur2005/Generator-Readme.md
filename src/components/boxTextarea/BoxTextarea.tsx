@@ -116,28 +116,28 @@ const BoxTextarea = () => {
 		<>
 			<div className='box--textarea container'>
 				{orderEditor ? (
+					<Translated code={code} getTheme={getTheme(theme)} />
+				) : (
 					<Editor
 						code={code}
 						handleOnChange={handleOnChange}
 						getTheme={getTheme(theme)}
 						scrollToButton={scrollToButton}
 					/>
-				) : (
-					<Translated code={code} getTheme={getTheme(theme)} />
 				)}
 
 				<p className='box--textarea__text'>
 					{orderEditor ? "Translated code" : "Editor"}
 				</p>
 				{orderEditor ? (
-					<Translated code={code} getTheme={getTheme(theme)} />
-				) : (
 					<Editor
 						code={code}
 						handleOnChange={handleOnChange}
 						getTheme={getTheme(theme)}
 						scrollToButton={scrollToButton}
 					/>
+				) : (
+					<Translated code={code} getTheme={getTheme(theme)} />
 				)}
 			</div>
 			<ToastDialog
