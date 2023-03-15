@@ -1,0 +1,101 @@
+.data-list {
+	position: absolute;
+	z-index: 2;
+	top: 11rem;
+	left: 0;
+	width: 100%;
+	animation: 0.5s showDragDrop;
+	&__buttons {
+		display: flex;
+		margin-bottom: 0.2rem;
+		height: 4rem;
+		[aria-label="Expand All"],
+		[aria-label="Collapse All"] {
+			margin-left: 0.5rem;
+		}
+	}
+}
+
+@media (min-width: 1100px) {
+	.data-list {
+		position: absolute;
+		min-width: 34rem;
+		max-width: 34rem;
+		top: 20.1%;
+		left: 5%;
+		max-height: 76vh;
+		min-height: 76vh;
+		overflow: auto;
+		margin-bottom: 1rem;
+		animation: 0.5s showDragDrop;
+		&__buttons {
+			position: absolute;
+			top: 15.6%;
+			left: 4.5%;
+			margin-bottom: 0.5rem;
+			height: 4rem;
+			display: flex;
+		}
+	}
+}
+
+@keyframes showDragDrop {
+	from {
+		transform: translateX(-150%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}
+
+/// global list style
+[aria-posinset] {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	font-size: 2rem;
+	margin-bottom: 0.2rem;
+	cursor: pointer;
+}
+///
+
+/// for every li
+[aria-posinset] + .p-treenode-children li [aria-posinset] span {
+	position: relative;
+	font-size: 2.7rem;
+	width: 100%;
+	cursor: pointer;
+}
+
+/// space between elements in li
+[aria-posinset] + .p-treenode-children li span {
+	padding: 0.3rem;
+}
+/// border bottom
+[aria-posinset] + .p-treenode-children li [aria-posinset] {
+	border-bottom: 1px solid black;
+}
+
+/// for all after and before
+[aria-posinset] + .p-treenode-children li [aria-posinset] span::after,
+[aria-posinset] + .p-treenode-children li [aria-posinset] span::before {
+	display: block;
+	text-align: left;
+	line-height: 2rem;
+	font-size: 1.6rem;
+	white-space: pre;
+}
+[aria-posinset] + .p-treenode-children li [aria-posinset] span::after {
+	margin-top: 1rem;
+	margin-left: 2rem;
+}
+///
+
+@import "./children/headers-list-tree";
+@import "./children/lists-list-tree";
+@import "./children/bold-and_italic-list-tree";
+@import "./children/img-list-tree";
+@import "./children/links-list-tree";
+@import "./children/strikethrough-list-tree";
+@import "./children/blockquotes-list-tree";
+@import "./children/table-list-tree";
+@import "./children/code-list-tree";
