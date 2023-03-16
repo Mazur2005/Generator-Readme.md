@@ -5,10 +5,12 @@
 		&__translate,
 		&__editor {
 			width: 100%;
-			height: 70rem;
+			min-height: 70rem;
+			max-height: 70rem;
 			padding: 25px;
 			padding-top: 35px;
 			border: 1px solid gray;
+			overflow: auto;
 		}
 	}
 
