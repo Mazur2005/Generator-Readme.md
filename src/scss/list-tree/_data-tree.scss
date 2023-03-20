@@ -21,7 +21,7 @@
 		position: absolute;
 		min-width: 34rem;
 		max-width: 34rem;
-		top: 20rem;
+		top: 19.6rem;
 		left: 5%;
 		max-height: 76vh;
 		min-height: 76vh;
@@ -30,7 +30,7 @@
 		animation: 0.5s showDragDrop;
 		&__buttons {
 			position: absolute;
-			top: 15.5rem;
+			top: 15.2rem;
 			left: 4.5%;
 			margin-bottom: 0.5rem;
 			height: 4rem;
@@ -70,6 +70,7 @@
 [aria-posinset] + .p-treenode-children li span {
 	padding: 0.3rem;
 }
+
 /// border bottom
 [aria-posinset] + .p-treenode-children li [aria-posinset] {
 	border-bottom: 1px solid black;
