@@ -1,5 +1,5 @@
-@import "../assets/_reset.scss";
-@import "../assets/_variables.scss";
+@import "./reset.scss";
+@import "./variables";
 
 html {
 	font-size: $initial-font-size;
@@ -23,8 +23,8 @@ body {
 	margin: 0 auto;
 }
 
-@import "./header";
-@import "./menu";
+@import "./header.module";
+// @import "./menu";
 @import "./box-panel";
 @import "./box-textarea";
 @import "./list-tree/data-tree";
