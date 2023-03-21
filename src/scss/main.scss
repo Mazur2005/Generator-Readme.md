@@ -23,8 +23,8 @@ body {
 	margin: 0 auto;
 }
 
-@import "./header.module";
-// @import "./menu";
+@import "./header";
+@import "./menu";
 @import "./box-panel";
 @import "./box-textarea";
 @import "./list-tree/data-tree";
