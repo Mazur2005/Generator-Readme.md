@@ -11,9 +11,8 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 
 /// ts
-import { typeStateDragDown } from "@/interface/types/globalTypes";
+import { StringKeyedBooleanObject } from "@/interface/types/globalTypes";
 import { CheckWidth } from "./CheckWidth";
-import { typeIsDesktop } from "@/interface/types/globalTypes";
 
 /// children
 import { DataList } from "./dataList/DataList";
@@ -28,13 +27,13 @@ const App = () => {
 	const [theme, setTheme] = useState("dark");
 
 	const isDisplayDragDown = useSelector(
-		(state: typeStateDragDown) => state.isDragDrop.value
+		(state: StringKeyedBooleanObject) => state.isDragDrop.value
 	);
 
 	const isDesktop = useSelector(
-		(state: typeIsDesktop) => state.isDesktop.value
+		(state: StringKeyedBooleanObject) => state.isDesktop.value
 	);
-	
+
 	const dispatch = useDispatch();
 
 	const toggleTheme = () => {

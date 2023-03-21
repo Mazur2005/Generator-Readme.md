@@ -1,4 +1,4 @@
-import React, { Children, useContext } from "react";
+import { useContext } from "react";
 
 /// react prime
 import { Tree } from "primereact/tree";
@@ -7,15 +7,17 @@ import { Tree } from "primereact/tree";
 import { ThemeContext } from "../../App";
 
 /// ts
-import { typePickOption } from "@/interface/types/globalTypes";
-import { TypeNode } from "@/interface/types/globalTypes";
-import { TypeExpandedKeys } from "@/interface/types/globalTypes";
+import {
+	typePickOption,
+	TypeNode,
+	StringKeyedBoolean,
+} from "@/interface/types/globalTypes";
 
 interface Props {
 	pickOption: (e: typePickOption) => void;
 	nodes?: TypeNode[];
-	expandedKeys: { [key: string]: boolean };
-	getExpandedKeys: (e: TypeExpandedKeys) => void;
+	expandedKeys: StringKeyedBoolean;
+	getExpandedKeys: (e: StringKeyedBoolean) => void;
 }
 
 const TreeList = ({

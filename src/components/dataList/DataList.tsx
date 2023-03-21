@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 
 /// redux
 import { useSelector, useDispatch } from "react-redux";
 import { selectedOption } from "../../services/redux/actions/pickOption";
 import { isDragDrop } from "../../services/redux/actions/isDragDrop";
 import { optionToSelect } from "../../services/optionsToSelect";
-import { isDesktop } from "@/services/redux/actions/isDesktop";
 
 /// ProductService
-import { productService } from "../../services/productServices";
+import { getTreeNodesData } from "../../services/productServices";
 
 /// types
-import { typeStateDragDown } from "@/interface/types/globalTypes";
-import { typePickOption } from "@/interface/types/globalTypes";
-import { TypeNode } from "@/interface/types/globalTypes";
-import { TypeExpandedKeys } from "@/interface/types/globalTypes";
-import { typeIsDesktop } from "@/interface/types/globalTypes";
+import {
+	StringKeyedBooleanObject,
+	typePickOption,
+	TypeNode,
+	StringKeyedBoolean,
+} from "@/interface/types/globalTypes";
 
 /// children
 import { ExpandAll } from "./children/ExpandAll";
@@ -24,11 +24,11 @@ import { TreeList } from "./children/TreeList";
 
 function DataList() {
 	const [nodes, setNodes] = useState<TypeNode[]>();
-	const [expandedKeys, setExpandedKeys] = useState<TypeExpandedKeys>({});
+	const [expandedKeys, setExpandedKeys] = useState<StringKeyedBoolean>({});
 	const [clickedOption, setClickedOption] = useState<Array<string>>([]);
 
 	const isDisplayDragDown = useSelector(
-		(state: typeStateDragDown) => state.isDragDrop.value
+		(state: StringKeyedBooleanObject) => state.isDragDrop.value
 	);
 	const dispatch = useDispatch();
 
@@ -44,7 +44,7 @@ function DataList() {
 		setExpandedKeys({});
 	};
 
-	const expandNode = (node: TypeNode, _expandedKeys: TypeExpandedKeys) => {
+	const expandNode = (node: TypeNode, _expandedKeys: StringKeyedBoolean) => {
 		if (node.children && node.children.length) {
 			_expandedKeys[node.key] = true;
 
@@ -53,12 +53,10 @@ function DataList() {
 	};
 
 	useEffect(() => {
-		productService.getTreeNodes().then((data: TypeNode[]) => {
-			return setNodes(data);
-		});
+		return setNodes(getTreeNodesData());
 	}, []);
 
-	const openSpecificOption = (_expandedKeys: TypeExpandedKeys) => {
+	const openSpecificOption = (_expandedKeys: StringKeyedBoolean) => {
 		setExpandedKeys(prevExpandedKeys => {
 			return { ...prevExpandedKeys, ..._expandedKeys };
 		});
@@ -89,12 +87,12 @@ function DataList() {
 		});
 	};
 
-	const getExpandedKeys = (value: TypeExpandedKeys) => {
+	const getExpandedKeys = (value: StringKeyedBoolean) => {
 		return setExpandedKeys(value);
 	};
 
 	const isDesktop = useSelector(
-		(state: typeIsDesktop) => state.isDesktop.value
+		(state: StringKeyedBooleanObject) => state.isDesktop.value
 	);
 
 	const isDisplay = () => {

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 
 /// local storage
 import useLocalStorage from "react-use-localstorage";
@@ -9,8 +9,7 @@ import { selectedOption } from "../../services/redux/actions/pickOption";
 import { createSketch } from "@/services/redux/actions/createSketch";
 
 /// ts
-import { typeOrderEditor } from "@/interface/types/globalTypes";
-import { typeSketch } from "@/interface/types/globalTypes";
+import { StringKeyedBooleanObject, StringKeyedStringObject } from "@/interface/types/globalTypes";
 
 /// context
 import { ThemeContext } from "../App";
@@ -38,12 +37,12 @@ const BoxTextarea = () => {
 	const dispatch = useDispatch();
 
 	const orderEditor = useSelector(
-		(state: typeOrderEditor) => state.editorOrder.value
+		(state: StringKeyedBooleanObject) => state.editorOrder.value
 	);
 	const selectedValue = useSelector((state: typeSelectedValue) => {
 		return state.pickOption.value;
 	});
-	const addSketch = useSelector((state: typeSketch) => {
+	const addSketch = useSelector((state: StringKeyedStringObject) => {
 		return state.createSketch.value;
 	});
 

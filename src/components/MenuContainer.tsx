@@ -9,9 +9,7 @@ import { createSketch } from "@/services/redux/actions/createSketch";
 import { Button } from "primereact/button";
 
 /// ts
-import { typeStateDragDown } from "@/interface/types/globalTypes";
-import { typeIsDesktop } from "@/interface/types/globalTypes";
-
+import { StringKeyedBooleanObject } from "@/interface/types/globalTypes";
 
 /// font awesomeIcon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,16 +18,16 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 /// styles
 import { styleForBtns } from "../utils/styleForBtns";
 
-/// sketch 
+/// sketch
 import { sketch } from "@/services/sketch";
 
 const MenuContainer = () => {
 	const isDisplayDragDown = useSelector(
-		(state: typeStateDragDown) => state.isDragDrop.value
+		(state: StringKeyedBooleanObject) => state.isDragDrop.value
 	);
 
 	const isDesktop = useSelector(
-		(state: typeIsDesktop) => state.isDesktop.value
+		(state: StringKeyedBooleanObject) => state.isDesktop.value
 	);
 
 	const dispatch = useDispatch();
