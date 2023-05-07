@@ -38,13 +38,13 @@ In this project It have been used compiler Vite
 After you've installed node, you should be able to use the program. The simplest use case would be run local server:
 
 ``` bash
- $ git run dev 
+ $ npm run dev 
 ```
 
 Bulid your application
 
 ``` bash
- $ git run build 
+ $ npm run build 
 ```
   
 
